@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\baner.png" />
+    <None Remove="Images\black_card.png" />
+    <None Remove="Images\blue_card.png" />
+    <None Remove="Images\card_1.png" />
+    <None Remove="Images\card_2.png" />
+    <None Remove="Images\cheque.png" />
+    <None Remove="Images\crystal_card.png" />
+    <None Remove="Images\exit_icon.png" />
+    <None Remove="Images\green_card.png" />
+    <None Remove="Images\hotion_card.png" />
+    <None Remove="Images\hryvnia_icon.png" />
+    <None Remove="Images\icon.png" />
+    <None Remove="Images\logo.png" />
+    <None Remove="Images\loupe.png" />
+    <None Remove="Images\orange_card.png" />
+    <None Remove="Images\phone.png" />
+    <None Remove="Images\purple_card.png" />
+    <None Remove="Images\request_money.png" />
+    <None Remove="Images\restart_icon.png" />
+    <None Remove="Images\return_icon.png" />
+    <None Remove="Images\rose_card.png" />
+    <None Remove="Images\settings.png" />
+    <None Remove="Images\shutdown.png" />
+    <None Remove="Images\sweetcolors_card.png" />
+    <None Remove="Images\visa_card_black.png" />
+    <None Remove="Images\withdraw.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\loupe.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\baner.png" />
+    <Resource Include="Images\black_card.png" />
+    <Resource Include="Images\blue_card.png" />
+    <Resource Include="Images\card_1.png" />
+    <Resource Include="Images\card_2.png" />
+    <Resource Include="Images\cheque.png" />
+    <Resource Include="Images\crystal_card.png" />
+    <Resource Include="Images\exit_icon.png" />
+    <Resource Include="Images\green_card.png" />
+    <Resource Include="Images\hotion_card.png" />
+    <Resource Include="Images\hryvnia_icon.png" />
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\orange_card.png" />
+    <Resource Include="Images\phone.png" />
+    <Resource Include="Images\purple_card.png" />
+    <Resource Include="Images\request_money.png" />
+    <Resource Include="Images\restart_icon.png" />
+    <Resource Include="Images\return_icon.png" />
+    <Resource Include="Images\rose_card.png" />
+    <Resource Include="Images\settings.png" />
+    <Resource Include="Images\shutdown.png" />
+    <Resource Include="Images\sweetcolors_card.png" />
+    <Resource Include="Images\visa_card_black.png" />
+    <Resource Include="Images\withdraw.png" />
+  </ItemGroup>
+
+</Project>

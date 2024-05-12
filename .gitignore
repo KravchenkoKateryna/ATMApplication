@@ -1,0 +1,7 @@
+.vscode/
+*.filters
+*.pdb
+*.idb
+obj/
+bin/
+.vs/

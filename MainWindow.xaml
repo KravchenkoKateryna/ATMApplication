@@ -1,0 +1,93 @@
+﻿<Window x:Class="ATMApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ATMApplication"
+        xmlns:viewModel="clr-namespace:ATMApplication.MVVM.ViewModel"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+
+        Title="MainWindow" Height="800" Width="1052.824">
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    <Border>
+        <Border
+       
+        Background="#ced4da"
+        CornerRadius="20">
+            <Grid>
+                <Grid.Resources>
+                    <Storyboard x:Key="FadeInStoryboard">
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:1"/>
+                    </Storyboard>
+
+                    <Storyboard x:Key="FadeOutStoryboard">
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                             From="1" To="0" Duration="0:0:1"/>
+                    </Storyboard>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="313*"/>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="740*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <ContentControl 
+                Background="Transparent"
+                Content="{Binding SelectedViewModel}" Margin="5,10,5,0" Grid.ColumnSpan="4" Grid.Row="1"/>
+                <Border Grid.Row="0"
+                     
+                    Background="White" Grid.ColumnSpan="4">
+
+
+                </Border>
+
+                <Border Grid.ColumnSpan="4">
+                </Border>
+
+                <Image
+                Source="/Images/logo.png" Margin="-868,10,84,20" Grid.ColumnSpan="4"/>
+                <TextBlock 
+               Text="Приймаємо&#x0a; готівку від:"
+               
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               Foreground="Black"
+               FontSize="15" Height="39" Width="81"
+               />
+                <Border
+                CornerRadius="28"
+                Background="#ced4da" Margin="209,0,566,0" RenderTransformOrigin="0.503,0.5" Grid.ColumnSpan="4" Height="56" VerticalAlignment="Center">
+                    <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                     FontSize="20"
+                     Foreground="#6c757d"
+                     Text="10₴ 5$ 5€"/>
+                </Border>
+
+                <Border
+                CornerRadius="40"
+                Cursor="Hand"
+                Mouse.MouseDown="Shutdown_Click"
+                Background="#ced4da" Margin="663,0,20,0" RenderTransformOrigin="0.503,0.5" Height="54" VerticalAlignment="Center" Grid.Column="3">
+                    <Image Source="/Images/shutdown.png" Margin="8,12,8,12" RenderTransformOrigin="0.5,0.511"/>
+
+                </Border>
+
+            </Grid>
+        </Border>
+
+    </Border>
+</Window>
