@@ -65,7 +65,19 @@
                HorizontalAlignment="Center"
                Foreground="Black"
                FontSize="15" Height="39" Width="81"
-               />
+               >S
+                    <TextBlock.Resources>
+                        <Storyboard x:Key="FadeInStoryboard">
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                From="0" To="1" Duration="0:0:1"/>
+                        </Storyboard>
+
+                        <Storyboard x:Key="FadeOutStoryboard">
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                From="1" To="0" Duration="0:0:1"/>
+                        </Storyboard>
+                    </TextBlock.Resources>
+                </TextBlock>
                 <Border
                 CornerRadius="28"
                 Background="#ced4da" Margin="209,0,566,0" RenderTransformOrigin="0.503,0.5" Grid.ColumnSpan="4" Height="56" VerticalAlignment="Center">
@@ -75,6 +87,18 @@
                      FontSize="20"
                      Foreground="#6c757d"
                      Text="10₴ 5$ 5€"/>
+                    <Border.Resources>
+                        <Storyboard x:Key="FadeInStoryboard">
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                From="0" To="1" Duration="0:0:1"/>
+                        </Storyboard>
+
+                        <Storyboard x:Key="FadeOutStoryboard">
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                From="1" To="0" Duration="0:0:1"/>
+                        </Storyboard>
+                    </Border.Resources>
+                
                 </Border>
 
                 <Border
