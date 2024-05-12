@@ -20,7 +20,5 @@ namespace ATMApplication.MVVM.Model.Templates
 		decimal Balance { get; set; }
 		ObservableCollection<Transaction> Transactions { get; set; }
 		DateTime LastLoginTime { get; set; }
-
-		void UpdateBalance();
 	}
 }

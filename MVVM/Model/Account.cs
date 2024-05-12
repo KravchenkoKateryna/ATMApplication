@@ -105,14 +105,6 @@ namespace ATMApplication.MVVM.Model
 				$"{cardNumber.Substring(0, 4)} - {cardNumber.Substring(4, 4)} - {cardNumber.Substring(8, 4)} - {cardNumber.Substring(12, 4)}" :
 				"Invalid Card Number";
 		}
-
-		public void UpdateBalance()
-		{
-			Database database = new Database();
-			BalanceText = $"{database.GetBalance(CardNumber, Pin)} ₴";
-			OnPropertyChanged(nameof(BalanceText));
-		}
-
 		protected virtual void OnPropertyChanged(string propName)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
