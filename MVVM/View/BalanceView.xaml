@@ -134,6 +134,17 @@
                 </LinearGradientBrush>
             </Border.Background>
             <Grid>
+                <Grid.Resources>
+                    <Storyboard x:Key="FadeInStoryboard">
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                            From="0" To="1" Duration="0:0:1"/>
+                    </Storyboard>
+
+                    <Storyboard x:Key="FadeOutStoryboard">
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                            From="1" To="0" Duration="0:0:1"/>
+                    </Storyboard>
+                </Grid.Resources>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,226,0,0">
                     <Button Width="50" Height="50" Background="White" BorderBrush="Transparent" BorderThickness="1" Margin="5" Style="{StaticResource RoundButtonStyle}" Cursor="Hand" Click="OpenTopUp">
                         <Image
