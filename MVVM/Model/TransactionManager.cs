@@ -24,13 +24,18 @@ namespace ATMApplication.MVVM.Model
 		{
 			MessageBox.Show($"Операція успішна: {e.Operator}{e.Parameter}.\nВідправлено на почту: {e.Gmail}");
 		}
+		private void SubscribeToSuccessfulOperationEvent()
+		{
+			bank.SuccessfulOperation += SuccessfulOperationHandler;
+		}
+
 		public void TopUpMoney(object parameter)
 		{
 			account.Balance += Convert.ToDecimal(parameter);
 			atm.MoneyAmount += Convert.ToDecimal(parameter);
 			bank.SendMessage(parameter.ToString(), "+", account.GmailAddress);
 			account.Transactions.Add(new Transaction(+Convert.ToDecimal(parameter), $"{atm.ATMId} Поповнення карти"));
-			bank.SuccessfulOperation += SuccessfulOperationHandler;
+			SubscribeToSuccessfulOperationEvent();
 		}
 
 		private void PerformTransaction(decimal amount, string transactionType)
@@ -48,7 +53,7 @@ namespace ATMApplication.MVVM.Model
 				account.Balance -= amount;
 				account.Transactions.Add(new Transaction(-amount, $"{atm.ATMId} {transactionType}"));
 				bank.SendMessage(amount.ToString(), transactionType == "Зняття коштів" ? "-" : "+", account.GmailAddress);
-				bank.SuccessfulOperation += SuccessfulOperationHandler;
+				SubscribeToSuccessfulOperationEvent();
 			}
 			catch (Exception ex)
 			{
