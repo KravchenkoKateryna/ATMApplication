@@ -1,61 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ATMApplication.MVVM.Model
+﻿namespace ATMApplication.MVVM.Model
 {
-	public delegate void SuccessfulOperationEventHandler(object sender, SuccessfulOperationEventArgs e);
+    public delegate void SuccessfulOperationEventHandler(object sender, SuccessfulOperationEventArgs e);
 
-	public class SuccessfulOperationEventArgs(string parameter, string _operator, string gmail) : EventArgs
-	{
-		public string Parameter { get; } = parameter;
-		public string Operator { get; } = _operator;
-		public string Gmail { get; } = gmail;
-	}
+    public class SuccessfulOperationEventArgs(string parameter, string _operator, string gmail) : EventArgs
+    {
+        public string Parameter { get; } = parameter;
+        public string Operator { get; } = _operator;
+        public string Gmail { get; } = gmail;
+    }
 
-	public class Bank(string bankName)
-	{
-		private string _bankName = bankName;
-		private List<AutomatedTellerMachine> atms = [];
-		private readonly Database _database = new();
+    public class Bank(string bankName)
+    {
+        private string _bankName = bankName;
+        private List<AutomatedTellerMachine> atms = [];
+        private readonly Database _database = new();
 
-		public event SuccessfulOperationEventHandler? SuccessfulOperation;
+        public event SuccessfulOperationEventHandler? SuccessfulOperation;
 
-		public List<AutomatedTellerMachine> ATMs
-		{
-			get { return atms; }
-			set { atms = value; }
-		}
+        public List<AutomatedTellerMachine> ATMs
+        {
+            get { return atms; }
+            set { atms = value; }
+        }
 
-		public Database GetDatabase()
-		{
-			return _database;
-		}
+        public Database GetDatabase()
+        {
+            return _database;
+        }
 
-		public void SendMessage(string parameter, string _operator, string gmail)
-		{
-			//string sender = ""; 
-			//string pass = ""; 
+        public void SendMessage(string parameter, string _operator, string gmail)
+        {
+            //string sender = ""; 
+            //string pass = ""; 
 
-			//var smtpClient = new SmtpClient("smtp.gmail.com")
-			//{
-			//	Port = 587,
-			//	UseDefaultCredentials = false,
-			//	Credentials = new NetworkCredential(sender, pass),
-			//	EnableSsl = true,
-			//	DeliveryMethod = SmtpDeliveryMethod.Network
-			//};
+            //var smtpClient = new SmtpClient("smtp.gmail.com")
+            //{
+            //	Port = 587,
+            //	UseDefaultCredentials = false,
+            //	Credentials = new NetworkCredential(sender, pass),
+            //	EnableSsl = true,
+            //	DeliveryMethod = SmtpDeliveryMethod.Network
+            //};
 
-			//smtpClient.Send(sender, gmail, "✅", $"{_operator}{parameter} UAH");
+            //smtpClient.Send(sender, gmail, "✅", $"{_operator}{parameter} UAH");
 
-			OnSuccessfulOperation(new SuccessfulOperationEventArgs(parameter, _operator, gmail));
-		}
+            OnSuccessfulOperation(new SuccessfulOperationEventArgs(parameter, _operator, gmail));
+        }
 
-		protected virtual void OnSuccessfulOperation(SuccessfulOperationEventArgs e)
-		{
-			SuccessfulOperation?.Invoke(this, e);
-		}
-	}
+        protected virtual void OnSuccessfulOperation(SuccessfulOperationEventArgs e)
+        {
+            SuccessfulOperation?.Invoke(this, e);
+        }
+    }
 }
